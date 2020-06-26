@@ -85,8 +85,7 @@ Antes de começar analise o arquivo `src/data.js`, para ver os dados que serão 
   - Ao receber mais de um id, retorna os animais que têm um desses ids
 
 ### 2- Implemente a função animalsOlderThan:
-  - Ao passar o nome de uma espécie e uma idade, testa se todos os animais desta
- espécie possuem a idade mínima especificada
+  - Ao passar o nome de uma espécie e uma idade, testa se todos os animais desta espécie possuem a idade mínima especificada
 
 ### 3- Implemente a função employeeByName:
   - Sem parâmetros, retorna um objeto vazio
