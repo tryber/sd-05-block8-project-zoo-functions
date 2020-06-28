@@ -13,9 +13,8 @@ describe('entryCalculator', () => {
     actual = zoo.entryCalculator({});
     assert.equal(actual, 0);
 
-    // retorna o preço total a ser cobrado dado o número de adultos, crianças e
-    // idosos
-    const entrants = { 'Adult': 2, 'Child': 3, 'Senior': 1 };
+   //retorna o preço total a ser cobrado dado o número de adultos, crianças e idosos
+   const entrants = { 'Adult': 2, 'Child': 3, 'Senior': 1 };
     actual = zoo.entryCalculator(entrants);
 
     assert.equal(actual, 187.94);
