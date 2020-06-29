@@ -11,53 +11,119 @@ eslint no-unused-vars: [
 
 const data = require('./data');
 
-function animalsByIds(ids) {
-  // seu código aqui
-}
+const { animals, employees, prices, hours } = data;
 
-function animalsOlderThan(animal, age) {
-  // seu código aqui
-}
+const animalsByIds = (...ids) => {
+  if (typeof ids === 'undefined') {
+    return [];
+  }
 
-function employeeByName(employeeName) {
-  // seu código aqui
-}
+  const result = animals.filter(elemento => ids.includes(elemento.id));
+  return result;
+};
 
-function createEmployee(personalInfo, associatedWith) {
-  // seu código aqui
-}
+const animalsOlderThan = (animal, age) => {
+  const result = animals.filter(({ name }) => animal.includes(name));
+  return result[0].residents[0].age > age;
+};
 
-function isManager(id) {
-  // seu código aqui
-}
+const employeeByName = (employeeName) => {
+  if (typeof employeeName === 'undefined') {
+    return {};
+  }
 
-function addEmployee(id, firstName, lastName, managers, responsibleFor) {
-  // seu código aqui
-}
+  return employees.find(n => employeeName === n.firstName || employeeName === n.lastName);
+};
 
-function animalCount(species) {
-  // seu código aqui
-}
+const createEmployee = (personalInfo, associatedWith) => {
+  const alterado = Object.assign(personalInfo, associatedWith);
+  return alterado;
+};
 
-function entryCalculator(entrants) {
-  // seu código aqui
-}
+const isManager = (id) => {
+  for (let i = 0; i < employees.length; i += 1) {
+    if (employees[i].managers.includes(id)) {
+      return true;
+    }
+  }
+  return false;
+};
+
+const addEmployee = (id, firstName, lastName, managers = [], responsibleFor = []) => {
+  const objeto = { id, firstName, lastName, managers, responsibleFor };
+  employees.push(objeto);
+};
+
+const animalCount = (species) => {
+  if (species === undefined) {
+    const novaLista = animals.reduce((acumulador, currentValue) => {
+      acumulador[currentValue.name] = currentValue.residents.length;
+      return acumulador;
+    }, {});
+    console.log(novaLista);
+    return novaLista;
+  }
+  const animal = animals.find(({ name }) => name === species);
+  return animal.residents.length;
+};
+
+const entryCalculator = (entrants) => {
+  if (entrants === undefined) {
+    return 0;
+  } else if (Object.keys(entrants).length === 0) {
+    return 0;
+  }
+  const adulto = prices.Adult * entrants.Adult;
+  const crianca = prices.Child * entrants.Child;
+  const idoso = prices.Senior * entrants.Senior;
+  const soma = adulto + crianca + idoso;
+  return soma;
+};
 
 function animalMap(options) {
   // seu código aqui
 }
 
-function schedule(dayName) {
-  // seu código aqui
-}
+const getTime = (key) => {
+  if (hours[key].open === 0 && hours[key].close === 0) {
+    return 'CLOSED';
+  }
 
-function oldestFromFirstSpecies(id) {
-  // seu código aqui
-}
+  return `Open from ${hours[key].open}am until ${hours[key].close - 12}pm`;
+};
 
-function increasePrices(percentage) {
-  // seu código aqui
-}
+const schedule = (dayName) => {
+  const horarios = {};
+
+  if (dayName === undefined) {
+    Object.keys(hours).forEach((key) => {
+      horarios[key] = getTime(key);
+    });
+  } else {
+    horarios[dayName] = getTime(dayName);
+  }
+
+  return horarios;
+};
+console.log(schedule('Monday'));
+
+const oldestFromFirstSpecies = (id) => {
+  const func = employees.find(elemento => elemento.id === id);
+  const animal = animals.find(elemento => elemento.id === func.responsibleFor[0]);
+  const idade = animal.residents.sort((a, b) => {
+    if (a.age < b.age) return 1;
+    if (a.age > b.age) return -1;
+    return 0;
+  });
+  return Object.values(idade[0]);
+};
+
+const increasePrices = (percentage) => {
+  Object.keys(prices).reduce((acc, atual) => {
+    acc[atual] = Math.round((acc[atual] * (100 + percentage)).toFixed(2)) / 100;
+    return acc;
+  }, prices);
+};
 
 function employeeCoverage(idOrName) {
   // seu código aqui
