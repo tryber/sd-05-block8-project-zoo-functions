@@ -79,34 +79,34 @@ Utilize as novas funcionalidades do ES6 como arrow functions, template literals,
 
 Antes de começar analise o arquivo `src/data.js`, para ver os dados que serão usados.
 
-### 1- Implemente a função animalsByIds:
+ok### 1- Implemente a função animalsByIds:
   - Caso receba nenhum parâmetro, necessário retornar um array vazio
   - Ao receber como parâmetro um único id, retorna os animais com este id
   - Ao receber mais de um id, retorna os animais que têm um desses ids
 
-### 2- Implemente a função animalsOlderThan:
+ok### 2- Implemente a função animalsOlderThan:
   - Ao passar o nome de uma espécie e uma idade, testa se todos os animais desta
  espécie possuem a idade mínima especificada
 
-### 3- Implemente a função employeeByName:
+ok### 3- Implemente a função employeeByName:
   - Sem parâmetros, retorna um objeto vazio
   - Quando provido o primeiro nome do funcionário, retorna o objeto do funcionário
   - Quando provido o último nome do funcionário, retorna o objeto do funcionário
 
-### 4- Implemente a função createEmployee:
+ok### 4- Implemente a função createEmployee:
   - Cria um novo colaborador a partir de objetos contendo informações pessoais, gerentes e animais gerenciados
 
-### 5- Implemente a função isManager:
+ok### 5- Implemente a função isManager:
   - Testa se o id passado é de um gerente
 
-### 6- Implemente a função addEmployee:
+ok### 6- Implemente a função addEmployee:
   - Adiciona um funcionário no fim da lista
 
-### 7- Implemente a função animalCount:
+ok### 7- Implemente a função animalCount:
   - Sem parâmetros, returna animais e suas quantidades
   - Com o nome de uma espécie de animal, retorna somente a quantidade
 
-### 8- Implemente a função entryCalculator:
+ok### 8- Implemente a função entryCalculator:
   - Returna 0 se nenhum argumento for passado
   - Retorna 0 se um objeto vazio for passado
   - Retorna o preço total a ser cobrado dado o número de adultos, crianças e idosos
@@ -118,16 +118,16 @@ Antes de começar analise o arquivo `src/data.js`, para ver os dados que serão 
   - Com opções especificadas, retorna somente nomes de animais macho/fêmea
   - Só retorna informações específicas de gênero se `includeNames` for setado
 
-### 10- Implemente a função schedule:
+ok### 10- Implemente a função schedule:
   - Sem parâmetros, retorna um cronograma legível para humanos
   - Se um único dia for passado, retorna somente este dia em um formato legível para humanos
 
-### 11- Implemente a função oldestFromFirstSpecies:
+ok### 11- Implemente a função oldestFromFirstSpecies:
   - Passado o id de um funcionário, encontra a primeira espécie de animal
   gerenciado pelo funcionário, e retorna um array com nome, sexo e idade do
   animal mais velho dessa espécie
 
-### 12- Implemente a função increasePrices:
+ok### 12- Implemente a função increasePrices:
   - Ao passar uma porcentagem, incrementa todos os preços, arrendondados em duas casas decimais
 
 ### 13- Implemente a função employeeCoverage:
