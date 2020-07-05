@@ -4,9 +4,7 @@ const zoo = require('../src/zoo');
 describe('animalMap', () => {
   it('test', () => {
     let actual, expected, options;
-
-    // sem parâmetros, retorna animais categorizados por localização
-    actual = zoo.animalMap();
+   actual = zoo.animalMap();
     expected = {
       NE: ['lions', 'giraffes'],
       NW: ['tigers', 'bears', 'elephants'],
